@@ -66,7 +66,7 @@ a { text-decoration: none; }
   justify-content: space-between;
   padding: 8px 4px;
   position: absolute;
-  top: 48px;
+  top: 0px;
   left: 0;
   background-color: var(--header);
 }
@@ -123,7 +123,7 @@ a { text-decoration: none; }
   width: 429px;
   height: 2078px;
   position: absolute;
-  top: 104px;
+  top: 64px;
   left: 0;
 }
 
@@ -457,6 +457,8 @@ a { text-decoration: none; }
 
 /* ===== Inbox list ===== */
 .inbox{
+  position: absolute;
+  top: 60px;
   background: #fff;
 }
 
