@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tommy • Chat</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<div class="phone">
+<div class ="chat-screen">
+
+  <!-- HEADER -->
+  <header class="chat-header">
+    <a class="chat-back" href="inbox.html">←</a>
+    <img class="chat-avatar" src="img/profiles/tommy.png" alt="Tommy">
+    <div class="chat-title">Mila</div>
+  </header>
+
+  <!-- MESSAGES -->
+  <main class="chat-messages" id="chatBox">
+
+    <div class="chat-msg other">
+      <div class="chat-bubble">Kom je nog buitenspelen?</div>
+      <div class="chat-time">15:20</div>
+    </div>
+
+<!--    <div class="chat-msg me">-->
+<!--      <div class="chat-bubble">Ja! Ik doe m’n halsband om! 😄</div>-->
+<!--      <div class="chat-time">15:21</div>-->
+<!--    </div>-->
+
+  </main>
+
+  <!-- INPUT -->
+  <form class="chat-inputbar" id="chatForm">
+    <input class="chat-field" id="chatInput" placeholder="Typ een bericht...">
+    <button class="chat-send">Verstuur</button>
+  </form>
+
+</div>
+</div>
+
+<script>
+  const form = document.getElementById("chatForm");
+  const input = document.getElementById("chatInput");
+  const box = document.getElementById("chatBox");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if(input.value.trim() === "") return;
+
+    const msg = document.createElement("div");
+    msg.className = "chat-msg me";
+
+    msg.innerHTML = `
+      <div class="chat-bubble">${input.value}</div>
+      <div class="chat-time">Nu</div>
+    `;
+
+    box.appendChild(msg);
+    box.scrollTop = box.scrollHeight;
+
+    input.value = "";
+  });
+</script>
+
+</body>
+</html>
