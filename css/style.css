@@ -459,7 +459,7 @@ a { text-decoration: none; }
 .inbox{
   position: absolute;
   top: 60px;
-  width: 99%;
+  width: 100%;
   background: #fff;
 }
 
