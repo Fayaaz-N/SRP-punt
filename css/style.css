@@ -66,7 +66,7 @@ a { text-decoration: none; }
   justify-content: space-between;
   padding: 8px 4px;
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
   background-color: var(--header);
 }
@@ -95,7 +95,7 @@ a { text-decoration: none; }
   width: calc(100% - 112px);
   margin: 0;
 
-  font-family: var(--headers-font-family);
+  font-family: var(--headers-font-family), 'sans-serif';
   font-weight: var(--headers-font-weight);
   color: #fff;
   font-size: var(--headers-font-size);
@@ -156,7 +156,7 @@ a { text-decoration: none; }
   justify-content: center;
   padding: 10px;
 
-  font-family: var(--uname-font-family);
+  font-family: var(--uname-font-family), 'sans-serif';
   font-weight: var(--uname-font-weight);
   color: #141a1b;
   font-size: var(--uname-font-size);
@@ -172,7 +172,7 @@ a { text-decoration: none; }
 }
 
 .post .bio{
-  font-family: var(--bio-font-family);
+  font-family: var(--bio-font-family), 'sans-serif';
   font-weight: var(--bio-font-weight);
   color: var(--text);
   font-size: var(--bio-font-size);
@@ -225,7 +225,7 @@ a { text-decoration: none; }
   top: 139px;
   left: calc(50% - 28px);
   margin: 0;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter-Regular", Helvetica, 'sans-serif';
   font-weight: 400;
   color: var(--text);
   font-size: 30px;
@@ -236,7 +236,7 @@ a { text-decoration: none; }
   position: absolute;
   top: 175px;
   left: calc(50% - 28px);
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter-Regular", Helvetica, serif;
   font-weight: 400;
   color: #826f6f;
   font-size: 25px;
@@ -247,7 +247,7 @@ a { text-decoration: none; }
   position: absolute;
   top: 214px;
   left: calc(50% - 28px);
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter-Regular", Helvetica, serif;
   font-weight: 400;
   color: #826f6f;
   font-size: 25px;
@@ -284,7 +284,7 @@ a { text-decoration: none; }
 .profile .btn-action:last-child{ width: 175px; }
 
 .profile .btn-action span{
-  font-family: var(--m3-title-medium-font-family);
+  font-family: var(--m3-title-medium-font-family), 'sans-serif';
   font-weight: var(--m3-title-medium-font-weight);
   color: #4a4459;
   font-size: var(--m3-title-medium-font-size);
@@ -320,7 +320,7 @@ a { text-decoration: none; }
   left: calc(50% - 189px);
   width: 381px;
   margin: 0;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter-Regular", Helvetica, 'sans-serif';
   font-weight: 400;
   color: var(--text);
   font-size: 16px;
@@ -331,7 +331,7 @@ a { text-decoration: none; }
   position: absolute;
   left: calc(50% - 191px);
   margin: 0;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter-Regular", Helvetica, 'sans-serif';
   font-weight: 400;
   color: var(--text);
   font-size: 16px;
@@ -366,7 +366,7 @@ a { text-decoration: none; }
   height: 25px;
   padding: 13px 15px;
   border-radius: 8px;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter-Regular", Helvetica, 'sans-serif';
   font-weight: 400;
   font-size: 12px;
   color: #fff;
@@ -382,7 +382,7 @@ a { text-decoration: none; }
   top: 600px;
   left: calc(50% - 193px);
   margin: 0;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter-Regular", Helvetica, 'sans-serif';
   font-weight: 400;
   color: var(--text);
   font-size: 30px;
@@ -449,7 +449,7 @@ a { text-decoration: none; }
 
 .topbar .brand{
   color: #fff;
-  font-family: var(--headers-font-family, "Black Han Sans", Helvetica);
+  font-family: var(--headers-font-family, "Black Han Sans", Helvetica), 'sans-serif';
   font-weight: 400;
   font-size: 38px;
   line-height: 1;
@@ -552,7 +552,7 @@ body {
 
 /* CHAT SCREEN */
 .chat-screen {
-  height: 100vh;
+  height: 97vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;     /* belangrijk: alleen messages scrollt */
