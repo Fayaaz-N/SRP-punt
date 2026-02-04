@@ -412,7 +412,7 @@ a { text-decoration: none; }
 /* ===== Inbox page wrapper ===== */
 .inboxpage{
   background: #fff;
-  width: 100%;
+  width: 94%;
   min-width: 426px;
   min-height: 932px;
   position: relative;
