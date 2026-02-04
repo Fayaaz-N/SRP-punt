@@ -1,4 +1,4 @@
-# Petfinder – SRP Punt 1
+# Petfinder – SRP Punt
 
 Voor mijn eerste SRP-punt heb ik een website gemaakt op basis van een eigen ontwerp.
 
