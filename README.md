@@ -8,9 +8,9 @@ Voor mijn eerste SRP-punt heb ik een website gemaakt op basis van een eigen ontw
 
 Als eerste stap heb ik een beginnerscursus Figma gevolgd. Daarmee heb ik geleerd hoe ik een simpele interface kan ontwerpen en hoe ik zelf een design kan maken.
 Met deze kennis heb ik een app-achtig ontwerp gemaakt voor een project genaamd **Petfinder**.
-
-Dit is mijn ontwerp:
+Hier heb ik mijn ontwerp staan: 
 https://www.figma.com/design/rJqAIOP0wVEAf9ukvIvuxe/Untitled?node-id=0-1&t=RN75TTHlp8TbHZiJ-1
+
 ---
 
 ## HTML en CSS training
