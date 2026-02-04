@@ -1,0 +1,777 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+a { text-decoration: none; }
+
+/* ========== Variables ========== */
+:root{
+  --bio-font-family: "Roboto", Helvetica;
+  --bio-font-weight: 400;
+  --bio-font-size: 20px;
+  --bio-letter-spacing: 0px;
+  --bio-line-height: 28px;
+
+  --uname-font-family: "Roboto", Helvetica;
+  --uname-font-weight: 400;
+  --uname-font-size: 16px;
+  --uname-letter-spacing: 0px;
+  --uname-line-height: 28px;
+
+  --headers-font-family: "Black Han Sans", Helvetica;
+  --headers-font-weight: 400;
+  --headers-font-size: 30px;
+  --headers-letter-spacing: 0px;
+  --headers-line-height: normal;
+  --headers-font-style: normal;
+
+  --text: rgba(21, 26, 27, 1);
+  --header: rgba(105, 195, 102, 1);
+
+  /* deze gebruik je in je profielknoppen (komt uit je export) */
+  --m3-title-medium-font-family: "Roboto", Helvetica;
+  --m3-title-medium-font-weight: 500;
+  --m3-title-medium-font-size: 16px;
+  --m3-title-medium-letter-spacing: 0px;
+  --m3-title-medium-line-height: 20px;
+  --m3-title-medium-font-style: normal;
+}
+
+/* ========== Phone wrapper ========== */
+.phone{
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+
+  min-width: 426px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.statusbar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 426px;   /* bewust hetzelfde als jouw export */
+  height: 60px;
+  background-color: #68c365;
+}
+
+/* ========== Appbar (shared) ========== */
+.appbar{
+  display: flex;
+  width: 100%;
+  height: 64px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 8px 4px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background-color: var(--header);
+}
+
+.appbar .menu{
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.appbar .menu img{
+  width: 60px;
+  height: auto;
+}
+
+.appbar .title{
+  position: absolute;
+  top: calc(50% - 19px);
+  left: 56px;
+  width: calc(100% - 112px);
+  margin: 0;
+
+  font-family: var(--headers-font-family);
+  font-weight: var(--headers-font-weight);
+  color: #fff;
+  font-size: var(--headers-font-size);
+  letter-spacing: var(--headers-letter-spacing);
+  line-height: var(--headers-line-height);
+  font-style: var(--headers-font-style);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.appbar .right{
+  display: inline-flex;
+  height: 48px;
+  width: 48px;
+}
+
+/* =========================================================
+   PAGE 1: FEED
+   ========================================================= */
+.feed{
+  display: flex;
+  flex-direction: column;
+  width: 429px;
+  height: 2078px;
+  position: absolute;
+  top: 64px;
+  left: 0;
+}
+
+.post{
+  height: 510px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  border-bottom: 1px solid grey;
+}
+
+.post .user{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.post .avatar{
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+}
+
+.post .name{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  font-family: var(--uname-font-family);
+  font-weight: var(--uname-font-weight);
+  color: #141a1b;
+  font-size: var(--uname-font-size);
+  letter-spacing: var(--uname-letter-spacing);
+  line-height: var(--uname-line-height);
+  white-space: nowrap;
+}
+
+.post .photo{
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+}
+
+.post .bio{
+  font-family: var(--bio-font-family);
+  font-weight: var(--bio-font-weight);
+  color: var(--text);
+  font-size: var(--bio-font-size);
+  letter-spacing: var(--bio-letter-spacing);
+  line-height: var(--bio-line-height);
+}
+
+.post .actions{
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+
+/* simpele feed button (jij kan styling later uitbreiden) */
+.post .btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.post .btn img{
+  width: 24px;
+  height: 24px;
+}
+
+/* =========================================================
+   PAGE 2: PROFILE
+   ========================================================= */
+.profile{ position: relative; }
+
+/* avatar blok */
+.profile .pfp{
+  position: absolute;
+  top: 131px;
+  left: 16px;
+  width: 127px;
+  height: 127px;
+  background-image: url(/img/profiles/tommy.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* headings/info */
+.profile .pf-name{
+  position: absolute;
+  top: 139px;
+  left: calc(50% - 28px);
+  margin: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: var(--text);
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+.profile .pf-breed{
+  position: absolute;
+  top: 175px;
+  left: calc(50% - 28px);
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #826f6f;
+  font-size: 25px;
+  white-space: nowrap;
+}
+
+.profile .pf-followers{
+  position: absolute;
+  top: 214px;
+  left: calc(50% - 28px);
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #826f6f;
+  font-size: 25px;
+  white-space: nowrap;
+}
+
+/* actions (2 knoppen) */
+.profile .pf-actions{
+  position: absolute;
+  top: 278px;
+  left: 22px;
+  width: 381px;
+  height: 56px;
+  display: flex;
+  gap: 35px;
+}
+
+.profile .btn-action{
+  height: 56px;
+  width: 171px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background-color: #e8def8;
+  border-radius: 8px;
+  border: 0;
+  padding: 16px 24px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.profile .btn-action:last-child{ width: 175px; }
+
+.profile .btn-action span{
+  font-family: var(--m3-title-medium-font-family);
+  font-weight: var(--m3-title-medium-font-weight);
+  color: #4a4459;
+  font-size: var(--m3-title-medium-font-size);
+  letter-spacing: var(--m3-title-medium-letter-spacing);
+  line-height: var(--m3-title-medium-line-height);
+  white-space: nowrap;
+}
+
+/* icon stack (hier vervangen we die overdreven action__icon classes) */
+.profile .iconstack{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+.profile .iconstack img{
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.profile .iconstack .top{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* bio tekst */
+.profile .pf-bio{
+  position: absolute;
+  top: 354px;
+  left: calc(50% - 189px);
+  width: 381px;
+  margin: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* titels likes/dislikes */
+.profile .pf-title{
+  position: absolute;
+  left: calc(50% - 191px);
+  margin: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: var(--text);
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.profile .pf-title.likes{ top: 431px; }
+.profile .pf-title.dislikes{ top: 509px; }
+
+/* chips */
+.profile .chips{
+  display: inline-flex;
+  align-items: center;
+  gap: 21px;
+  position: absolute;
+}
+
+.profile .chips.likes{
+  top: 459px;
+  left: calc(50% - 190px);
+}
+
+.profile .chips.dislikes{
+  top: 536px;
+  left: calc(50% - 196px);
+}
+
+.profile .chip{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  padding: 13px 15px;
+  border-radius: 8px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.profile .chip.good{ background-color: #68c365; }
+.profile .chip.bad{ background-color: #c15252; }
+
+/* photos titel */
+.profile .photos-title{
+  position: absolute;
+  top: 600px;
+  left: calc(50% - 193px);
+  margin: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: var(--text);
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+/* photo rows */
+.profile .photos .row{
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  left: calc(50% - 193px);
+}
+
+.profile .photos .row img{
+  width: 116px;
+  height: 116px;
+  object-fit: cover;
+}
+
+.profile .photos .r1{ top: 650px; }
+.profile .photos .r2{ top: 780px; }
+.profile .photos .r3{ top: 910px; }
+
+
+/* ===== Inbox page wrapper ===== */
+.inboxpage{
+  background: #fff;
+  width: 100%;
+  min-width: 426px;
+  min-height: 932px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== Topbar (zoals screenshot) ===== */
+.topbar{
+  height: 120px;
+  background: #68c365;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 18px;
+}
+
+.topbar .menu{
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.topbar .menu img{
+  width: 26px;
+  height: 26px;
+  /* als je svg zwart is, maak ‘m wit met filter */
+  filter: brightness(0) invert(1);
+}
+
+.topbar .brand{
+  color: #fff;
+  font-family: var(--headers-font-family, "Black Han Sans", Helvetica);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1;
+}
+
+/* ===== Inbox list ===== */
+.inbox{
+  position: absolute;
+  top: 60px;
+  background: #fff;
+}
+
+/* 1 chat row */
+.chat{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border-bottom: 2px solid #2b2b2b;
+  color: inherit;
+}
+
+.avatar{
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.info{
+  min-width: 0; /* belangrijk voor ellipsis */
+  flex: 1 1 auto;
+}
+
+.name{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  color: #111;
+  line-height: 1.1;
+}
+
+.preview{
+  margin-top: 6px;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #6f8f97; /* grijs-blauw zoals screenshot */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.time{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #111;
+}
+
+/* badge alleen als je ‘m in HTML zet */
+.badge-inbox{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #c62828;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* optioneel: unread iets sterker (mag je weglaten) */
+.chat.unread .name, .chat.unread .preview{
+  font-weight: 800;
+}
+
+
+/* Zorg dat de pagina zelf niet scrollt */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+/* CHAT SCREEN */
+.chat-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;     /* belangrijk: alleen messages scrollt */
+  background: #f7f7f7;
+}
+
+/* HEADER blijft boven doordat hij niet mee-scrolt */
+.chat-header {
+  flex: 0 0 auto;
+  height: 120px;
+  background: #68c365;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 18px;
+}
+
+/* inhoud header */
+.chat-back {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.chat-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.chat-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+  font-family: Inter, sans-serif;
+}
+
+/* MESSAGES: dit is de enige scroller */
+.chat-messages {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 18px;
+}
+
+/* INPUT BAR blijft onder doordat hij niet mee-scrolt */
+.chat-inputbar {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #fff;
+  border-top: 2px solid #2b2b2b;
+}
+
+.chat-field {
+  flex: 1;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.2);
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  outline: none;
+}
+
+.chat-send {
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: none;
+  background: #68c365;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Berichten */
+.chat-msg {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  gap: 6px;
+}
+
+.chat-msg.me { align-items: flex-end; }
+.chat-msg.other { align-items: flex-start; }
+
+.chat-bubble {
+  max-width: 75%;
+  padding: 12px 14px;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  font-family: Inter, sans-serif;
+}
+
+.chat-msg.other .chat-bubble {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.1);
+  color: #111;
+  border-top-left-radius: 8px;
+}
+
+.chat-msg.me .chat-bubble {
+  background: #68c365;
+  color: #fff;
+  border-top-right-radius: 8px;
+}
+
+.chat-time {
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+  font-weight: 600;
+  font-family: Inter, sans-serif;
+}
+
+/* ==============================
+   Drawer menu (geen conflicts)
+   ============================== */
+
+.drawer{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;          /* open via .is-open */
+}
+
+.drawer.is-open{
+  display: block;
+}
+
+.drawerbackdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.25);
+  border: 0;
+  padding: 0;
+}
+
+/* panel zelf */
+.drawerpanel{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: min(426px, 100vw);  /* jouw iPhone breedte */
+  background: #34c26b;       /* groen zoals screenshot */
+}
+
+/* inhoud */
+.drawercontent{
+  position: relative;
+  height: 100%;
+  padding: 110px 40px 110px;
+}
+
+/* Welkom tekst */
+.drawerhello{
+  color: #fff;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1.05;
+  margin-bottom: 70px;
+}
+
+/* nav items */
+.drawernav{
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+}
+
+.draweritem{
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  text-decoration: none;
+}
+
+.drawericon{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* maak zwarte svg wit */
+}
+
+.drawerlabel{
+  color: #fff;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1;
+}
+
+/* ronde terugknop onderaan */
+.drawerclose{
+  position: absolute;
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 0;
+  background: #e6e6e6;
+  color: #111;
+  font-size: 46px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* optioneel: klik feedback */
+.draweritem:active{ opacity: .85; }
+.drawerclose:active{ transform: translateX(-50%) scale(.98); }
