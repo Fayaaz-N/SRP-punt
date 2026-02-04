@@ -458,7 +458,7 @@ a { text-decoration: none; }
 /* ===== Inbox list ===== */
 .inbox{
   position: absolute;
-  top: 60px;
+  top: 61px;
   width: 100%;
   background: #fff;
 }
